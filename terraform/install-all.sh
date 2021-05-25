@@ -160,7 +160,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <property>
     <name>dfs.replication</name>
-    <value>2</value>
+    <value>5</value>
   </property>
   <property>
     <name>dfs.namenode.name.dir</name>
@@ -228,6 +228,9 @@ s06
 ' | sudo tee --append conf/slaves > /dev/null
 
 cp conf/spark-defaults.conf.template conf/spark-defaults.conf
+
+# Download dei file necessari a nltk
+python3 -m nltk.downloader popular
 
 # Avvio di tutti i nodi
 echo -e '$HADOOP_HOME/sbin/start-dfs.sh && $HADOOP_HOME/sbin/start-yarn.sh && $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver' > /home/ubuntu/hadoop-start-master.sh
