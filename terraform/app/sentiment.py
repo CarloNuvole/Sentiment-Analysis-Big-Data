@@ -34,14 +34,6 @@ from nltk.tokenize import word_tokenize
 
 # FUNCTIONS #
 
-def clean_word(word):
-    issim = word.find("issim")
-
-    if issim != -1:
-        return word[0:issim] + '_'
-
-    return word
-
 def compute_score(sentiment, score):
 
     if sentiment == 'negative':
@@ -121,7 +113,7 @@ tweets = tweets.map(lambda line: (word_tokenize(re.sub(r'[\d-]', '', re.sub(r'[^
 stop_words = set(stopwords.words('italian'))
 
 tweets = tweets.flatMap(lambda line: [(w, line[1]) for w in line[0] if not w in stop_words])
-tweets = tweets.map(lambda line: (clean_word(line[0]), line[1]))
+tweets = tweets.map(lambda line: (line[0], line[1]))
 
 if not tweets.isEmpty():
     TableA = spark.createDataFrame(tweets, ['Word_', 'ID_Tweet'])
