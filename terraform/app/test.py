@@ -5,9 +5,9 @@
 # label for the output file of sentiment.py.
 #
 # Input File Schema: Tweet Score Sentiment Label
-# Input Parameters: <numbers_slave> <path>
-#  - numbers_slave: number of AWS datanodes
-#  - path: must be a 'tsv'
+# Input Parameters: <number_slaves> <path>
+#  - number_slaves: number of AWS datanodes
+#  - path: must be in a 'tsv' form
 #
 # Language used: Python
 #
