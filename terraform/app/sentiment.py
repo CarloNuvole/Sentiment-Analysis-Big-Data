@@ -1,11 +1,11 @@
 # ------------------------------------------------------------------------------
 # Project: Sentiment Analysis for italian tweets using lexicon with Spark
 #
-# Input Parameters: <numbers_slave> <test> <path_tweet> <path_tweet_label>
-#  - numbers_slave: number of AWS datanodes
+# Input Parameters: <number_slaves> <test> <path_tweet> <path_tweet_label>
+#  - number_slaves: number of AWS datanodes
 #  - test: 'True' to compare results with given labels, 'False' otherwise
-#  - path_tweet: must be a 'tsv'
-#  - path_tweet_label: must be a 'tsv'. Necessary if <test> is 'True'
+#  - path_tweet: file path with tweets
+#  - path_tweet_label: must be in a 'tsv' form. Necessary if <test> is 'True'
 #
 # Language used: Python
 #
