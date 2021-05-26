@@ -210,7 +210,6 @@ cd spark-3.0.1-bin-hadoop2.7
 
 cp conf/spark-env.sh.template conf/spark-env.sh  
 
-
 # Configurazione di Spark
 echo '
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
