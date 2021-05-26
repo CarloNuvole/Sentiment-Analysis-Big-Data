@@ -3,7 +3,6 @@ locals {
     is_windows = substr(pathexpand("~"), 0, 1) == "/" ? false : true
 }
 
-
 provider "aws" {
     region      = var.region
     access_key  = var.access_key
@@ -101,7 +100,6 @@ resource "aws_instance" "Namenode" {
 
     }
 }
-
 
 # datanode (slaves)
 resource "aws_instance" "Datanode" {
