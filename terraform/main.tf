@@ -34,7 +34,6 @@ resource "aws_security_group" "Hadoop_cluster_sc" {
     }
 }
 
-
 # namenode (master)
 resource "aws_instance" "Namenode" {
     count = var.namenode_count
