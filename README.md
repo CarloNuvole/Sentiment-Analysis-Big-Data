@@ -32,30 +32,32 @@
 
 ## AWS Setup
 
+#### Step 1
 > Una volta create le macchine, ci si collegherà al nodo master ‘s01’ tramite ssh, eseguendo il comando:
 ```
   ssh -i <NOME_CHIAVE>.pem ubuntu@<PUBLIC_DNS>
 ```
 > Dove <NOME_CHIAVE> indica il nome delle chiave PEM creata precedentemente su AWS e <PUBLIC_DNS> è l’indirizzo del master reperibile da AWS o dall’output di terraform. 
 
+#### Step 2
 > Se il collegamento ssh è andato a buon fine, eseguiamo i seguenti comandi sulla macchina del master:
 ```
   $HADOOP_HOME/sbin/start-dfs.sh
   $HADOOP_HOME/sbin/start-yarn.sh
   $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 ```
-   
+#### Step 3  
 > Per verificare che i file siano presenti nel file system distribuito, è possibile eseguire il comando
 ```
   hadoop fs -ls
 ```
-  
+#### Step 4  
 > Una volta verificata la presenza dei file, procediamo con l'avvio del master e degli slave: 
 ```
   $SPARK_HOME/sbin/start-master.sh
   $SPARK_HOME/sbin/start-slaves.sh spark://s01:7077
 ```
-
+#### Step 5
 > Per lanciare il file sentiment.py con la parte di test, è necessario eseguire il seguente comando:
 ```
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit –master spark://s01:7077 --executor-cores 2 sentiment.py 5 true tweet_teams.csv tweet_teams_sentiment.csv 
