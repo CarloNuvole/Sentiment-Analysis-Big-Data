@@ -17,10 +17,13 @@
 #### Step 3
 > Il passo successivo sarà quello di creare all’interno della cartella spark-terraform una chiave ssh, e sarà possibile farlo attraverso il comando:
 ```
-  ssh-keygen -f -localkey
+  ssh-keygen -f localkey
 ```
 #### Step 4
-> Una volta creata la chiave ssh, sarà necessario creare una nuova coppia di chiavi PEM attraverso AWS. Terminata l’operazione, la chiave dovrà essere spostata all’interno della cartella spark-terraform.
+> Una volta creata la chiave ssh, sarà necessario **creare una nuova coppia di chiavi PEM** attraverso AWS. Terminata l’operazione, la chiave dovrà essere spostata all’interno della cartella spark-terraform ed è necessario cambiare i permessi di accesso alla chiave:
+```
+  chmod 400 amzkey.pem
+```
 
 #### Step 5
 > Conclusi i passaggi precedenti, sarà necessario eseguire i seguenti comandi:
@@ -35,9 +38,9 @@
 #### Step 1
 > Una volta create le macchine, ci si collegherà al nodo master ‘s01’ tramite ssh, eseguendo il comando:
 ```
-  ssh -i <NOME_CHIAVE>.pem ubuntu@<PUBLIC_DNS>
+  ssh -i amzkey.pem ubuntu@<PUBLIC_DNS>
 ```
-> Dove <NOME_CHIAVE> indica il nome delle chiave PEM creata precedentemente su AWS e <PUBLIC_DNS> è l’indirizzo del master reperibile da AWS o dall’output di terraform. 
+> Dove <PUBLIC_DNS> è l’indirizzo del master (s01) reperibile da AWS o dall’output di terraform. 
 
 #### Step 2
 > Se il collegamento ssh è andato a buon fine, eseguiamo i seguenti comandi sulla macchina del master:
