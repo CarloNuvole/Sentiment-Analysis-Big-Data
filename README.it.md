@@ -3,7 +3,7 @@
 ## Terraform Setup (ITA)
 
 #### Step 1
-> Per poter lanciare il progetto è necessario installare [Terraform](https://www.terraform.io/downloads.html) sulla propria macchina. A seconda del sistema operativo, potrebbe essere necessario spostare dalla cartella di download il file eseguibile terraform nella cartella del progetto. In questo caso, bisogna utilizzare il comando ./terraform <comando> invece di terraform <comando>. I comandi riportati di seguito riporteranno la prima forma, in quanto i test sono stati effettuati su Mac OS il quale opera in questo modo. 
+> Per poter lanciare il progetto è necessario installare [Terraform](https://www.terraform.io/downloads.html) sulla propria macchina. A seconda del sistema operativo, potrebbe essere necessario spostare dalla cartella di download il file eseguibile terraform nella cartella del progetto. In questo caso, bisogna utilizzare il comando `./terraform <comando>` invece di `terraform <comando>`. I comandi riportati di seguito riporteranno la prima forma, in quanto i test sono stati effettuati su Mac OS il quale opera in questo modo. 
   
 #### Step 2  
 > Dopo aver scaricato il progetto dalla repository, posizionarsi all’interno dalla cartella `spark-terraform` e creare il file `terraform.tfvars` e al suo interno incollare le seguenti stringhe:
