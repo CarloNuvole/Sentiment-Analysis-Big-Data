@@ -8,52 +8,52 @@
 > To run this project you need to install [Terraform](https://www.terraform.io/downloads.html) in your computer. Depending on your OS, you might move Terraform binary from download folder to the project folder. In this case, you need to use `./terraform <command>` instead of `terraform <command>`. The following instructions will use the first because the tests were made using Mac OS which works this way.
   
 #### Step 2  
-> Dopo aver scaricato il progetto dalla repository, posizionarsi all’interno dalla cartella `spark-terraform` e creare il file `terraform.tfvars` e al suo interno incollare le seguenti stringhe:
+> After downloading the project from the repository, you need to move inside `spark-terraform` folder and create `terraform.tfvars` file and paste in it the following lines:
 ```
   access_key="<AWS ACCESS KEY>"
   secret_key="<AWS SECRET KEY>"
   token="<AWS TOKEN>"
 ```
-> Dove `AWS ACCESS KEY`, `AWS SECRET KEY` e `AWS TOKEN` sono le chiavi di AWS reperibili nella Workbench di Vocareum (la pagina che viene aperta subito dopo aver fatto il login su AWS Educate). Questi dati sono reperibili cliccando sul bottone "Account Details" e successivamente sul tasto "AWS CLI show".
+> Where `AWS ACCESS KEY`, `AWS SECRET KEY` and `AWS TOKEN` are the AWS keys obtainable in Vocareum Workbench (the page opened immediately after AWS Educate login). Those string are obtainable clicking on "Account Details" button and later "AWS CLI show" button.
 
 #### Step 3
-> Il passo successivo sarà quello di creare all’interno della cartella `spark-terraform` una chiave ssh, e sarà possibile farlo attraverso il comando:
+> Create inside `spark-terraform` folder a ssh key using the following command:
 ```
   ssh-keygen -f localkey
 ```
 #### Step 4
-> Una volta creata la chiave ssh, sarà necessario creare una `nuova coppia di chiavi PEM su AWS`. Terminata l’operazione, la chiave dovrà essere spostata all’interno della cartella `spark-terraform` ed è necessario cambiare i permessi di accesso alla chiave attraverso il comando:
+> Once you have created the ssh key, you need to create a `new pair of PEM keys on AWS`. Then, you need move the key inside `spark-terraform` folder changing its permissions using the following commands:
 ```
   chmod 400 amzkey.pem
 ```
-> Attenzione: il nome della chiave nel filesystem 
+> Note that the file name for the key must be the one you chose in AWS, otherwise Terraform cannot verify key authenticity. 
 
 #### Step 5
-> Conclusi i passaggi precedenti, sarà necessario eseguire i seguenti comandi:
+> Now you can run Terraform using the following commands:
 ```
   ./terraform init
   ./terraform apply
 ```
-> Attraverso AWS EC2 si può verificare se le macchine sono state create correttamente.
-
-## AWS Setup (ITA)
+> You can check if all instances were created correctly in AWS EC2 Dashboard.
+ 
+## AWS Setup
 
 #### Step 1
-> Una volta create le macchine, ci si collegherà al nodo master `‘s01’` tramite ssh, eseguendo il comando:
+> Connect to the master node `‘s01’` through ssh using the following command: 
 ```
   ssh -i amzkey.pem ubuntu@<PUBLIC_DNS>
 ```
-> Dove `<PUBLIC_DNS>` è l’indirizzo del master (s01) reperibile da AWS o dall’output di terraform. 
+> Where `<PUBLIC_DNS>` is the master address (s01) that can be found in AWS EC2 Dashboard or in the Terraform output.
 
 #### Step 2
-> Se il collegamento ssh è andato a buon fine, eseguiamo i seguenti comandi sulla macchina del master (s01):
+> If ssh connection to the master node (s01) is established, run the following commands:
 ```
   $HADOOP_HOME/sbin/start-dfs.sh
   $HADOOP_HOME/sbin/start-yarn.sh
   $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 ```
 #### Step 3  
-> Una volta avviato Hadoop, possiamo procedere alla copia dei file e dataset d'esempio all'interno del file system distribuito:
+> Once Hadoop is running, you need to copy the following files and datasets to the destribuited file system:
 ``` 
   hadoop fs -mkdir -p /user/ubuntu
   hadoop fs -put lemmatization-it.txt
@@ -63,24 +63,23 @@
   hadoop fs -put tweet_players.csv
   hadoop fs -put tweet_players_sentiment.csv
 ```
-> Per verificare che i file siano presenti nel file system distribuito, è possibile eseguire il comando:
+> You can check if all files were moved correctly using the following command:
 ```
   hadoop fs -ls
 ```
 #### Step 4  
-> Una volta verificata la presenza dei file, procediamo con l'avvio del master e degli slave: 
+> To start the master and the slaves run the following commands:
 ```
   $SPARK_HOME/sbin/start-master.sh
   $SPARK_HOME/sbin/start-slaves.sh spark://s01:7077
 ```
 #### Step 5
-> Per lanciare il file `sentiment.py` con la parte di test, è necessario eseguire il seguente comando:
+> To run `sentiment.py` script in test mode, run the following command:
 ```
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 sentiment.py 5 true tweet_teams.csv tweet_teams_sentiment.csv 
 ```
-> Al termine dell'esecuzione, è possibile lanciare il file `test.py` provvedendo prima a spostare il file `Comparison_%date%.csv` su Hadoop (dove `%date%` corrisponde alla data con cui è stato eseguito il file `sentiment.py`):
+> Before lunching `test.py` script you need to move `Comparison_%date%.csv` file to Hadoop (where `%date%` is the date of `sentiment.py` execution) using the following commands: 
 ```
   hadoop fs -put Comparison_%date%.csv
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 test.py 5 Comparison_%Date%.csv
 ``` 
-  
