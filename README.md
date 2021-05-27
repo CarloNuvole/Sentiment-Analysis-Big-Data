@@ -9,7 +9,7 @@
 > Dopo aver scaricato il progetto dalla repository, posizionarsi all’interno dalla cartella `spark-terraform` e creare il file `terraform.tfvars` e al suo interno incollare le seguenti stringhe:
 ```
   access_key="<AWS ACCESS KEY>"
-  secret_key="<AWS SECRET KEY>”
+  secret_key="<AWS SECRET KEY>"
   token="<AWS TOKEN>"
 ```
 > Dove `AWS ACCESS KEY`, `AWS SECRET KEY` e `AWS TOKEN` sono le chiavi di AWS reperibili nella Workbench di Vocareum (la pagina che viene aperta subito dopo aver fatto il login su AWS Educate). Questi dati sono reperibili cliccando sul bottone "Account Details" e successivamente sul tasto "AWS CLI show".
