@@ -1,11 +1,11 @@
 # Sentiment Analysis using Lexicon with Italian Tweets
 
-## Terraform Setup (ITA)
+## Terraform Setup
 
 [README in Italian](https://github.com/CarloNuvole/Sentiment-Analysis-Big-Data/blob/main/README.it.md)
 
 #### Step 1
-> Per poter lanciare il progetto è necessario installare [Terraform](https://www.terraform.io/downloads.html) sulla propria macchina. A seconda del sistema operativo, potrebbe essere necessario spostare dalla cartella di download il file eseguibile terraform nella cartella del progetto. In questo caso, bisogna utilizzare il comando ./terraform <comando> invece di terraform <comando>. I comandi riportati di seguito riporteranno la prima forma, in quanto i test sono stati effettuati su Mac OS il quale opera in questo modo. 
+> To run this project you need to install [Terraform](https://www.terraform.io/downloads.html) in your computer. Depending on your OS, you might move Terraform binary from download folder to the project folder. In this case, you need to use `./terraform <command>` instead of `terraform <command>`. The following instructions will be using the first because the tests were made using Mac OS which works this way.
   
 #### Step 2  
 > Dopo aver scaricato il progetto dalla repository, posizionarsi all’interno dalla cartella `spark-terraform` e creare il file `terraform.tfvars` e al suo interno incollare le seguenti stringhe:
