@@ -83,3 +83,8 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
   hadoop fs -put Comparison_%date%.csv
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 test.py 5 Comparison_%Date%.csv
 ``` 
+#### Step 6
+> At the end of all tests, you can delete all the instances using the following commands:
+```
+  ./terraform destroy
+``` 
