@@ -1,6 +1,6 @@
 # Sentiment Analysis using Lexicon with Italian Tweets
 
-## Terraform Setup
+## Terraform Setup (ITA)
 
 #### Step 1
 > Per poter lanciare il progetto è necessario installare [Terraform](https://www.terraform.io/downloads.html) sulla propria macchina. A seconda del sistema operativo, potrebbe essere necessario spostare dalla cartella di download il file eseguibile terraform nella cartella del progetto. In questo caso, bisogna utilizzare il comando ./terraform <comando> invece di terraform <comando>. I comandi riportati di seguito riporteranno la prima forma, in quanto i test sono stati effettuati su Mac OS il quale opera in questo modo. 
@@ -24,6 +24,7 @@
 ```
   chmod 400 amzkey.pem
 ```
+> Attenzione: il nome della chiave nel filesystem 
 
 #### Step 5
 > Conclusi i passaggi precedenti, sarà necessario eseguire i seguenti comandi:
@@ -33,7 +34,7 @@
 ```
 > Attraverso AWS EC2 si può verificare se le macchine sono state create correttamente.
 
-## AWS Setup
+## AWS Setup (ITA)
 
 #### Step 1
 > Una volta create le macchine, ci si collegherà al nodo master `‘s01’` tramite ssh, eseguendo il comando:
@@ -50,6 +51,16 @@
   $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 ```
 #### Step 3  
+> Una volta avviato Hadoop, possiamo procedere alla copia dei file e dataset d'esempio all'interno del file system distribuito:
+``` 
+  hadoop fs -mkdir -p /user/ubuntu
+  hadoop fs -put lemmatization-it.txt
+  hadoop fs -put lexicon-it.csv
+  hadoop fs -put tweet_teams.csv
+  hadoop fs -put tweet_teams_sentiment.csv
+  hadoop fs -put tweet_players.csv
+  hadoop fs -put tweet_players_sentiment.csv
+```
 > Per verificare che i file siano presenti nel file system distribuito, è possibile eseguire il comando:
 ```
   hadoop fs -ls
@@ -65,3 +76,9 @@
 ```
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit –master spark://s01:7077 --executor-cores 2 sentiment.py 5 true tweet_teams.csv tweet_teams_sentiment.csv 
 ```
+> Al termine dell'esecuzione, è possibile lanciare il file `test.py` provvedendo prima a spostare il file `Comparison_%date%.csv` su Hadoop (dove `%date%` corrisponde alla data con cui è stato eseguito il file `sentiment.py`):
+```
+  hadoop fs -put Comparison_%date%.csv
+  /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 test.py 5 Comparison_%Date%.csv
+``` 
+  
