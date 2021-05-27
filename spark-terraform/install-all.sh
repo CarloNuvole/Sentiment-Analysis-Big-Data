@@ -24,12 +24,12 @@ pip3 install --user pydoop
 
 # IP del master e degli slave
 echo '
-172.31.66.241 s01
-172.31.66.242 s02
-172.31.66.243 s03
-172.31.66.244 s04
-172.31.66.245 s05
-172.31.66.246 s06' | sudo tee --append /etc/hosts > /dev/null
+172.31.7.241 s01
+172.31.7.242 s02
+172.31.7.243 s03
+172.31.7.244 s04
+172.31.7.245 s05
+172.31.7.246 s06' | sudo tee --append /etc/hosts > /dev/null
 
 sudo chmod 700 /home/ubuntu/.ssh
 sudo chmod 600 /home/ubuntu/.ssh/id_rsa
