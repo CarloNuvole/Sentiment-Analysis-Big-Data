@@ -24,7 +24,7 @@
 ```
   chmod 400 amzkey.pem
 ```
-> Attenzione: il nome della chiave nel filesystem 
+> Attenzione: il nome della chiave nel filesystem deve corrispondere al nome scelto su AWS, in caso contrario Terraform non potrà verificare l'autenticità della chiave.
 
 #### Step 5
 > Conclusi i passaggi precedenti, sarà necessario eseguire i seguenti comandi:
