@@ -1,8 +1,8 @@
 # Sentiment Analysis using Lexicon with Italian Tweets
 
-## Terraform Setup
+This README is also available in [Italian](https://github.com/CarloNuvole/Sentiment-Analysis-Big-Data/blob/main/README.it.md).
 
-[README in Italian](https://github.com/CarloNuvole/Sentiment-Analysis-Big-Data/blob/main/README.it.md)
+## Terraform Setup
 
 #### Step 1
 > To run this project you need to install [Terraform](https://www.terraform.io/downloads.html) in your computer. Depending on your OS, you might move Terraform binary from download folder to the project folder. In this case, you need to use `./terraform <command>` instead of `terraform <command>`. The following instructions will use the first because the tests were made using Mac OS which works this way.
