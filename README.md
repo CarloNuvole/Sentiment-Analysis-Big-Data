@@ -74,7 +74,7 @@
 #### Step 5
 > Per lanciare il file `sentiment.py` con la parte di test, è necessario eseguire il seguente comando:
 ```
-  /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit –master spark://s01:7077 --executor-cores 2 sentiment.py 5 true tweet_teams.csv tweet_teams_sentiment.csv 
+  /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 sentiment.py 5 true tweet_teams.csv tweet_teams_sentiment.csv 
 ```
 > Al termine dell'esecuzione, è possibile lanciare il file `test.py` provvedendo prima a spostare il file `Comparison_%date%.csv` su Hadoop (dove `%date%` corrisponde alla data con cui è stato eseguito il file `sentiment.py`):
 ```
