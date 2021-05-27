@@ -1,4 +1,4 @@
-# Sentiment Analysis using Lexicon with Italian Tweets
+# Sentiment Analysis mediante Lexicon utilizzando tweet in italiano
 
 ## Terraform Setup (ITA)
 
@@ -82,3 +82,9 @@
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 test.py 5 Comparison_%Date%.csv
 ``` 
   
+#### Step 6
+> Al termine dei test, è possibile eliminare tutte le istanze create utilizzando il seguente comando:
+
+```
+  ./terraform destroy
+``` 
