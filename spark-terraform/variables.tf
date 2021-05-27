@@ -20,7 +20,7 @@ variable "token" {
 
 variable "instance_type" {
     type = string
-    default = "t2.large"               # change instance type if needed
+    default = "t2.medium"               # change instance type if needed
 }
 
 variable "ami_image" {
@@ -60,11 +60,11 @@ variable "datanode_count" {
 
 variable "ips" {
     default = {
-        "0" = "172.31.66.242"
-        "1" = "172.31.66.243"
-        "2" = "172.31.66.244"
-        "3" = "172.31.66.245"
-        "4" = "172.31.66.246"
+        "0" = "172.31.7.242"
+        "1" = "172.31.7.243"
+        "2" = "172.31.7.244"
+        "3" = "172.31.7.245"
+        "4" = "172.31.7.246"
     }
 }
 

@@ -45,7 +45,7 @@ resource "aws_instance" "Namenode" {
     tags = {
         Name = "s01"
     }
-    private_ip = "172.31.66.241"
+    private_ip = "172.31.7.241"
     vpc_security_group_ids = [aws_security_group.Hadoop_cluster_sc.id]
 
     provisioner "file" {
