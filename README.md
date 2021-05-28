@@ -29,6 +29,9 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
 > Note that the file name for the key must be the one you chose in AWS, otherwise Terraform cannot verify key authenticity. 
 
 #### Step 5
+> Before starting Terraform, you need to create a `subnet-id` in EC2 Dashboard. Go to Network Interface under Network & Security tab and create a new interface, choosing as area `us-east-1a`. You need also to set as custom IPv4 IP address `172.31.0.64` and select at least one security group (i.e `default`. If you have already a security group called "Hadoop_cluster_sc" **do not use it**).
+
+#### Step 6
 > Now you can run Terraform using the following commands:
 ```
   ./terraform init
@@ -53,15 +56,9 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
   $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 ```
 #### Step 3  
-> Once Hadoop is running, you need to copy the following files and datasets to the destribuited file system:
+> Once Hadoop is running, you need to copy the files and datasets to the destribuited file system. To simplify this operation, you can use our script `setup_hadoop.sh` to make it writing only the following command:
 ``` 
-  hadoop fs -mkdir -p /user/ubuntu
-  hadoop fs -put lemmatization-it.txt
-  hadoop fs -put lexicon-it.csv
-  hadoop fs -put tweet_teams.csv
-  hadoop fs -put tweet_teams_sentiment.csv
-  hadoop fs -put tweet_players.csv
-  hadoop fs -put tweet_players_sentiment.csv
+  bash setup_hadoop.sh
 ```
 > You can check if all files were moved correctly using the following command:
 ```
