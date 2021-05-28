@@ -1,5 +1,7 @@
 # Sentiment Analysis mediante Lexicon utilizzando tweet in italiano
 
+### Autori: [Carlo Nuvole](https://github.com/CarloNuvole) & [Luca Sedda](https://github.com/seddaluca)
+
 ## Terraform Setup (ITA)
 
 #### Step 1
