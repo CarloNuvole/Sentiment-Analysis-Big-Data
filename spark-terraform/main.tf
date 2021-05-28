@@ -3,7 +3,6 @@ locals {
     is_windows = substr(pathexpand("~"), 0, 1) == "/" ? false : true
 }
 
-
 provider "aws" {
     region      = var.region
     access_key  = var.access_key
@@ -35,9 +34,9 @@ resource "aws_security_group" "Hadoop_cluster_sc" {
     }
 }
 
-
 # namenode (master)
 resource "aws_instance" "Namenode" {
+    subnet_id="subnet-0d34d286740c566e3"
     count = var.namenode_count
     ami = var.ami_image
     instance_type = var.instance_type
@@ -45,7 +44,7 @@ resource "aws_instance" "Namenode" {
     tags = {
         Name = "s01"
     }
-    private_ip = "172.31.7.241"
+    private_ip = "172.31.0.241"
     vpc_security_group_ids = [aws_security_group.Hadoop_cluster_sc.id]
 
     provisioner "file" {
@@ -102,9 +101,9 @@ resource "aws_instance" "Namenode" {
     }
 }
 
-
 # datanode (slaves)
 resource "aws_instance" "Datanode" {
+    subnet_id="subnet-0d34d286740c566e3"
     count = var.datanode_count
     ami = var.ami_image
     instance_type = var.instance_type
