@@ -29,6 +29,9 @@
 #### Step 5
 > Prima di avviare Terraform, è necessario creare una `subnet-id` nella Dashboard di EC2. Per farlo, è necessario recarsi nel tab Rete & Sicurezza e successivamente in Interfacce di rete, scegliendo come area `us-east-1a` e come indirizzo personalizzato IPv4 `172.31.0.64`. Come ultima cosa, è necessario selezionare almeno un gruppo di sicurezza (ad esempio `default`. Se è già presente un gruppo di sicurezza chiamato "Hadoop_cluster_sc" **non utilizzarlo**).
 <img src="https://github.com/CarloNuvole/Sentiment-Analysis-Big-Data/blob/main/images/photo_2021-05-28%2018.59.29.jpeg">
+
+> Subito dopo aver creato la subnet, è necessario copiare il valore `Subnet ID` dentro il file `main.tf` alle `righe 39 e 106`.
+
 #### Step 6
 > Conclusi i passaggi precedenti, sarà necessario eseguire i seguenti comandi:
 ```
