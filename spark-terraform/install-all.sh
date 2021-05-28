@@ -16,6 +16,7 @@ sudo apt-get -y install python3-pip
 pip3 install pandas
 pip3 install pyspark
 pip3 install nltk
+pip3 install tweepy
 
 # Installazione Java
 sudo apt-get -y install openjdk-8-jdk
