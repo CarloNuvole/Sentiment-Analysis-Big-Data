@@ -32,6 +32,8 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
 > Before starting Terraform, you need to create a `subnet-id` in EC2 Dashboard. Go to Network Interface under Network & Security tab and create a new interface, choosing as area `us-east-1a`. You need also to set as custom IPv4 IP address `172.31.0.64` and select at least one security group (i.e `default`. If you have already a security group called "Hadoop_cluster_sc" **do not use it**).
 <img src="https://github.com/CarloNuvole/Sentiment-Analysis-Big-Data/blob/main/images/photo_2021-05-28%2018.59.22.jpeg">
 
+> Once the subnet has been created, you need to copy the `Subnet ID` value into `main.tf` file at `rows 39 and 106`.
+
 #### Step 6
 > Now you can run Terraform using the following commands:
 ```
