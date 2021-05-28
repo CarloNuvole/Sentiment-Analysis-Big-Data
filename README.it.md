@@ -15,7 +15,7 @@
 > Dove `AWS ACCESS KEY`, `AWS SECRET KEY` e `AWS TOKEN` sono le chiavi di AWS reperibili nella Workbench di Vocareum (la pagina che viene aperta subito dopo aver fatto il login su AWS Educate). Questi dati sono reperibili cliccando sul bottone "Account Details" e successivamente sul tasto "AWS CLI show".
 
 #### Step 3
-> Il passo successivo sarà quello di creare all’interno della cartella `spark-terraform` una chiave ssh, e sarà possibile farlo attraverso il comando:
+> Il passo successivo sarà quello di creare all’interno della cartella `spark-terraform` una chiave ssh attraverso il comando:
 ```
   ssh-keygen -f localkey
 ```
@@ -27,6 +27,9 @@
 > Attenzione: il nome della chiave nel filesystem deve corrispondere al nome scelto su AWS, in caso contrario Terraform non potrà verificare l'autenticità della chiave.
 
 #### Step 5
+> Prima di avviare Terraform, è necessario creare una `subnet-id` nella Dashboard di EC2. Per farlo, è necessario recarsi nel tab Rete & Sicurezza e successivamente in Interfacce di rete, scegliendo come area `us-east-1a` e come indirizzo personalizzato IPv4 `172.31.0.64`. Come ultima cosa, è necessario selezionare almeno un gruppo di sicurezza (ad esempio `default`. Se è già presente un gruppo di sicurezza chiamato "Hadoop_cluster_sc" **non utilizzarlo**).
+
+#### Step 6
 > Conclusi i passaggi precedenti, sarà necessario eseguire i seguenti comandi:
 ```
   ./terraform init
@@ -51,20 +54,12 @@
   $HADOOP_HOME/sbin/mr-jobhistory-daemon.sh start historyserver
 ```
 #### Step 3  
-> Una volta avviato Hadoop, possiamo procedere alla copia dei file e dataset d'esempio all'interno del file system distribuito:
-``` 
-  hadoop fs -mkdir -p /user/ubuntu
-  hadoop fs -put lemmatization-it.txt
-  hadoop fs -put lexicon-it.csv
-  hadoop fs -put tweet_teams.csv
-  hadoop fs -put tweet_teams_sentiment.csv
-  hadoop fs -put tweet_players.csv
-  hadoop fs -put tweet_players_sentiment.csv
+> Una volta avviato Hadoop, è necessario procedere alla copia dei file e dataset d'esempio all'interno del file system distribuito. Abbiamo realizzato uno script per semplificare questi passaggi, per avviarlo basterà eseguire il seguente comando:
 ```
-> Per verificare che i file siano presenti nel file system distribuito, è possibile eseguire il comando:
+  bash setup_hadoop.sh
 ```
-  hadoop fs -ls
-```
+> Al termine dell'esecuzione nell'elenco dovrebbero comparire 6 file
+
 #### Step 4  
 > Una volta verificata la presenza dei file, procediamo con l'avvio del master e degli slave: 
 ```
