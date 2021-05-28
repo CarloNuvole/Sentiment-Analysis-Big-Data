@@ -2,6 +2,8 @@
 
 This README is also available in [Italian](https://github.com/CarloNuvole/Sentiment-Analysis-Big-Data/blob/main/README.it.md).
 
+### Authors: [Carlo Nuvole](https://github.com/CarloNuvole) & [Luca Sedda](https://github.com/seddaluca)
+
 ## Terraform Setup
 
 #### Step 1
