@@ -65,10 +65,7 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
 ``` 
   bash setup_hadoop.sh
 ```
-> You can check if all files were moved correctly using the following command:
-```
-  hadoop fs -ls
-```
+> If the output shows 6 files, it means that all files were moved correctly.
 #### Step 4  
 > To start the master and the slaves run the following commands:
 ```
