@@ -82,6 +82,11 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
   hadoop fs -put Comparison_%date%.csv
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 test.py 5 Comparison_%Date%.csv
 ``` 
+> If you chose to run `sentiment.py` without test mode, you can download `Valutation_%date%.csv` in your local machine using the following command:
+``` 
+  scp -i amzkey.pem ubuntu@<PUBLIC_DNS>:~/Valutation_%date%.csv <PATH_ON_YOUR_MACHINE> 
+``` 
+> Where `<PATH_ON_YOUR_MACHINE>` is the path on your computer (i.e `~/Documents` to download into your Documents folder).
 #### Step 6
 > You can delete all the instances using the following command:
 ```
