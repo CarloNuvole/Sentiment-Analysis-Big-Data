@@ -81,7 +81,11 @@
   hadoop fs -put Comparison_%date%.csv
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 test.py 5 Comparison_%Date%.csv
 ``` 
-  
+> Se si è eseguito il file `sentiment.py` senza la modalità test, è possibile scaricare il file `Valutation_%date%.csv` sulla propria macchina locale utilizzando il seguente comando (**sulla propria macchina locale**):
+``` 
+scp -i amzkey.pem ubuntu@<PUBLIC_DNS>:~/Valutation_%date%.csv <PATH_ON_YOUR_MACHINE> 
+``` 
+> Dove `<PATH_ON_YOUR_MACHINE>` è il percorso sul proprio computer (i.e `~/Documents` per scaricare il file nella propria cartella Documenti) e `%date%` è la data di esecuzione dello script.
 #### Step 6
 > Al termine dei test, è possibile eliminare tutte le istanze create utilizzando il seguente comando:
 
