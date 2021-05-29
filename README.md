@@ -92,3 +92,7 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
 ```
   ./terraform destroy
 ``` 
+## More informations
+> As of the week of May 10 2021, there were changes made to the AWS Educate program. Due this, you may encounter some problems with some steps reported above. 
+
+> Twitter API keys are missing in `twitter.py` for security reasons. If you want to use this script, get a `Twitter Developer Account` or check the project report to use ours.
