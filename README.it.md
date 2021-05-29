@@ -92,3 +92,7 @@ scp -i amzkey.pem ubuntu@<PUBLIC_DNS>:~/Valutation_%date%.csv <PATH_ON_YOUR_MACH
 ```
   ./terraform destroy
 ``` 
+
+## Informazioni aggiuntive
+> A partire dal 10 Maggio 2021, Amazon ha apportato delle modifiche per l'utilizzo di AWS Educate. A causa di queste modifiche alcuni passaggi illustrati precedentemente potrebbero non funzionare.
+> Le chiavi per l'API di Twitter nel file `twitter.py` sono state omesse per motivi di sicurezza. Per utilizzare questo script, è necessario utilizzare un `Account Sviluppatore Twitter` oppure è possibile utilizzare quelle presenti all'interno della relezione del progetto.
