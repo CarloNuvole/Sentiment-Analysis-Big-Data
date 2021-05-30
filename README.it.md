@@ -72,7 +72,7 @@
   $SPARK_HOME/sbin/start-slaves.sh spark://s01:7077
 ```
 #### Step 5
-> Per lanciare il file `sentiment.py` con la parte di test, è necessario eseguire il seguente comando:
+> Per lanciare il file `sentiment.py con la parte di test`, è necessario eseguire il seguente comando:
 ```
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 sentiment.py 5 true tweet_teams.csv tweet_teams_sentiment.csv 
 ```
@@ -81,7 +81,7 @@
   hadoop fs -put Comparison_%date%.csv
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 test.py 5 Comparison_%Date%.csv
 ``` 
-> Se si è eseguito il file `sentiment.py` senza la modalità test, è possibile scaricare il file `Valutation_%date%.csv` sulla propria macchina locale utilizzando il seguente comando (**sulla propria macchina locale**):
+> Se si è eseguito il file `sentiment.py senza la modalità test`, è possibile scaricare il file `Valutation_%date%.csv` sulla propria macchina locale utilizzando il seguente comando (**sulla propria macchina locale**):
 ``` 
 scp -i amzkey.pem ubuntu@<PUBLIC_DNS>:~/Valutation_%date%.csv <PATH_ON_YOUR_MACHINE> 
 ``` 
