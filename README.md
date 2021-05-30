@@ -73,7 +73,7 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
   $SPARK_HOME/sbin/start-slaves.sh spark://s01:7077
 ```
 #### Step 5
-> To run `sentiment.py` script in test mode, run the following command:
+> To run `sentiment.py script in test mode`, run the following command:
 ```
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 sentiment.py 5 true tweet_teams.csv tweet_teams_sentiment.csv 
 ```
@@ -82,7 +82,7 @@ This README is also available in [Italian](https://github.com/CarloNuvole/Sentim
   hadoop fs -put Comparison_%date%.csv
   /opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077 --executor-cores 2 test.py 5 Comparison_%Date%.csv
 ``` 
-> If you chose to run `sentiment.py` without test mode, you can download `Valutation_%date%.csv` in your local machine using the following command (**only on your local machine**):
+> If you chose to run `sentiment.py without test mode`, you can download `Valutation_%date%.csv` in your local machine using the following command (**only on your local machine**):
 ``` 
   scp -i amzkey.pem ubuntu@<PUBLIC_DNS>:~/Valutation_%date%.csv <PATH_ON_YOUR_MACHINE> 
 ``` 
